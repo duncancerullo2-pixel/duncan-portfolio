@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duncan Cerullo | Web Developer</title>
+</head>
+<body>
+
+<h1>Hello, I'm Duncan Cerullo</h1>
+
+<p>I create simple, clean, and mobile-friendly websites for businesses and individuals.</p>
+
+<h2>My Services</h2>
+<ul>
+  <li>Business Websites</li>
+  <li>Portfolio Websites</li>
+  <li>Landing Pages</li>
+</ul>
+
+<h2>Contact Me</h2>
+<p>WhatsApp: +254 XXX XXX XXX</p>
+
+</body>
+</html>
