@@ -173,6 +173,12 @@ color:black;
 
 body.light header{
 background:linear-gradient(135deg,#64b5f6,#81c784);
+}#typing{
+font-size:22px;
+font-weight:bold;
+color:white;
+margin-top:15px;
+min-height:30px;
 }
 </style>
 
@@ -202,7 +208,7 @@ background:linear-gradient(135deg,#64b5f6,#81c784);
 
 <h1>Duncan Cerullo</h1>
 
-<p>I create simple, modern and mobile-friendly websites.</p>
+<p id="typing"></p>
 
 <h2 style="color:#25D366;margin-top:20px;">
 Turning Ideas Into Beautiful Websites
@@ -519,9 +525,10 @@ Whether you're starting a business or growing an existing one, I'm ready to help
 </p>
 
 </footer>
-<script>
+
 
   
+<script>
 function toggleTheme() {
   document.body.classList.toggle("light");
 
@@ -533,6 +540,41 @@ function toggleTheme() {
     button.innerHTML = "🌙 Light Mode";
   }
 }
-  </script>
+
+const words = [
+  "Web Developer",
+  "Website Designer",
+  "Freelancer",
+  "Portfolio Creator"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let typing = true;
+
+function typeEffect() {
+  const element = document.getElementById("typing");
+
+  if (typing) {
+    element.textContent = words[wordIndex].substring(0, charIndex++);
+    if (charIndex > words[wordIndex].length) {
+      typing = false;
+      setTimeout(typeEffect, 1200);
+      return;
+    }
+  } else {
+    element.textContent = words[wordIndex].substring(0, charIndex--);
+    if (charIndex < 0) {
+      typing = true;
+      wordIndex = (wordIndex + 1) % words.length;
+    }
+  }
+
+  setTimeout(typeEffect, typing ? 120 : 60);
+}
+
+typeEffect();
+</script>
+
 </body>
 </html>
