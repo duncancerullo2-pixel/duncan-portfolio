@@ -245,16 +245,33 @@ border-radius:20px;
 overflow:hidden;
 }
 
+
+
+
+
+
+
+
 .fill{
 height:100%;
 background:linear-gradient(90deg,#25D366,#00e5ff);
 border-radius:20px;
 animation:grow 2s ease forwards;
-width:0;
+transform-origin:left;
 }
 
-.html{
-width:95%;
+.html{animation-delay:0s;width:95%;}
+.css{animation-delay:.2s;width:90%;}
+.github{animation-delay:.4s;width:85%;}
+.responsive{animation-delay:.6s;width:90%;}
+
+@keyframes grow{
+from{
+transform:scaleX(0);
+}
+to{
+transform:scaleX(1);
+}
 }
 
 .css{
