@@ -80,8 +80,17 @@ background-position:100% 50%;
 background-position:0% 50%;
 }
 }
+.hidden{
+opacity:0;
+transform:translateY(40px);
+transition:all .8s ease;
+}
 
-
+.show{
+opacity:1;
+transform:translateY(0);
+}
+</style>
 
 
 
@@ -468,7 +477,7 @@ Chat on WhatsApp
 
 </header>
 
-<section id="about">
+<section id="about" class="hidden">
 
 <h2>About Me</h2>
 
@@ -477,7 +486,7 @@ I'm an aspiring web developer passionate about building clean, modern websites f
 </p>
 
 </section>
-<section id="services">
+<section id="services" class="hidden">
 
 <h2>My Services</h2>
 
@@ -508,7 +517,7 @@ I'm an aspiring web developer passionate about building clean, modern websites f
 
 </section>
 
-<section id="projects">
+<section id="projects" class="hidden">
 
 <h2>My Projects</h2>
 
@@ -580,7 +589,7 @@ View Project
 
 </section>
 
-<section id="testimonials">
+<section id="testimonials" class="hidden">
 
 <h2>Client Testimonials</h2>
 
@@ -600,7 +609,7 @@ View Project
 
 </section>
 
-<section id="skills">
+<section id="skills" class="hidden">
 
 <h2>My Skills</h2>
 
@@ -639,7 +648,7 @@ View Project
 
 
 
-<section id="contact">
+<section id="contact" class="hidden">
 
 <h2>Contact Me</h2>
 
@@ -691,7 +700,7 @@ Let's work together to create a fast, modern, and mobile-friendly website for yo
 <a class="button" href="https://wa.me/254115786763" style="background:white;color:#25D366;">
 Hire Me Today
 </a>
-<section id="pricing">
+<section id="pricing" class="hidden">
 
 <h2 style="text-align:center;color:#25D366;">Services & Pricing</h2>
 
@@ -782,7 +791,24 @@ function typeEffect() {
   setTimeout(typeEffect, typing ? 120 : 60);
 }
 
+
+
+
+
 typeEffect();
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".hidden").forEach((el) => {
+  observer.observe(el);
+});
+
 </script>
 
 </body>
