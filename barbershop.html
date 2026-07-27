@@ -372,7 +372,29 @@ footer{
 </section>
  <footer>  
 <p>© 2026 Nemesis Barbershop</p>
+ </footer>
+<script>
+document.querySelector("form").addEventListener("submit", function(e){
+    e.preventDefault();
 
-</footer>
+    const name = this.querySelector('input[type="text"]').value;
+    const phone = this.querySelector('input[type="tel"]').value;
+    const date = this.querySelector('input[type="date"]').value;
+
+    const message =
+`Hello Nemesis Barbershop!
+
+Name: ${name}
+Phone: ${phone}
+Preferred Date: ${date}
+
+I would like to book an appointment.`;
+
+    window.open(
+        "https://wa.me/254115786763?text=" + encodeURIComponent(message),
+        "_blank"
+    );
+});
+</script>
 </body>
 </html>
