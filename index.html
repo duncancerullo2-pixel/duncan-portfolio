@@ -52,7 +52,11 @@ font-weight:bold;
 nav a:hover{
 color:#25D366;
 }
-
+nav a.active{
+color:#25D366;
+border-bottom:2px solid #25D366;
+padding-bottom:5px;
+}
 
 
 
@@ -1058,7 +1062,27 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll(".hidden").forEach((el) => {
   observer.observe(el);
 });
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
 
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    if (scrollY >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
+  });
+});
 </script>
 
 </body>
