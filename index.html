@@ -262,7 +262,30 @@ transition:0.3s;
 transform:scale(1.1);
 background:#128C7E;
 }
+.top-button{
+position:fixed;
+bottom:90px;
+right:20px;
+background:#FFD700;
+color:black;
+width:55px;
+height:55px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:24px;
+text-decoration:none;
+box-shadow:0 0 15px rgba(255,215,0,.7);
+transition:.3s;
+z-index:1000;
+}
 
+.top-button:hover{
+transform:scale(1.1);
+background:white;
+box-shadow:0 0 25px gold;
+  }
 @keyframes profileGlow{
 from{
 box-shadow:0 0 15px rgba(255,255,255,.4);
@@ -963,7 +986,9 @@ Whether you're starting a business or growing an existing one, I'm ready to help
 <a href="https://wa.me/254115786763" class="whatsapp-float">
 💬
 </a>
-
+<a href="#" class="top-button">
+⬆️
+</a>
   
 <script>
 function toggleTheme() {
