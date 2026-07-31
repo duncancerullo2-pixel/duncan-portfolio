@@ -313,13 +313,31 @@ box-shadow:0 0 40px rgba(37,211,102,.9);
 
 
 /* * the new code HERE *
+.tech-card{
+transition:0.3s;
+cursor:pointer;
+}
 
+.tech-card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 0 25px rgba(37,211,102,.8);
+background:#2b2b2b;
+  }
+.project-card{
+transition:0.3s;
+cursor:pointer;
+}
+
+.project-card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 30px rgba(37,211,102,.8);
+border:2px solid #25D366;
+}
 .skill{
 max-width:600px;
 margin:20px auto;
 text-align:left;
-}
-
+  }
 .skill p{
 display:flex;
 justify-content:space-between;
@@ -626,7 +644,7 @@ Founder of <strong>Nemesis Digital Web Studio</strong>, passionate about helping
 
 <h2>Our Recent Projects</h2>
 
-<div style="background:#222;padding:20px;margin:20px;border-radius:12px;">
+<div class="project-card" style="background:#222;padding:20px;margin:20px;border-radius:12px;">
 <h3>👤 Personal Portfolio</h3>
 <p>This website showcases the skills, services, and completed projects of Nemesis Digital Web Studio.</p>
 </div>
@@ -756,7 +774,36 @@ View Project
 </div>
 
 </section>
+<section id="technology" class="hidden">
 
+<h2>💻 Technology Stack</h2>
+
+<div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:30px;">
+
+<div class="tech-card" style="background:#222;padding:20px;border-radius:15px;width:180px;">
+
+<h3>🌐 HTML5</h3>
+<p>Modern semantic websites</p>
+</div>
+
+<div style="background:#222;padding:20px;border-radius:15px;width:180px;">
+<h3>🎨 CSS3</h3>
+<p>Responsive and attractive design</p>
+</div>
+
+<div style="background:#222;padding:20px;border-radius:15px;width:180px;">
+<h3>🐙 GitHub</h3>
+<p>Version control & deployment</p>
+</div>
+
+<div style="background:#222;padding:20px;border-radius:15px;width:180px;">
+<h3>📱 Responsive Design</h3>
+<p>Perfect on mobile and desktop</p>
+</div>
+
+</div>
+
+</section>
 
 
 
@@ -881,6 +928,18 @@ Hire Me Today
 
 </div>
 
+</section>
+<section class="hidden" style="background:#0d47a1;padding:60px 20px;text-align:center;">
+
+<h2 style="color:white;">🚀 Ready to Start Your Project?</h2>
+
+<p style="max-width:700px;margin:20px auto;color:white;font-size:20px;">
+Whether you need a business website, portfolio, online store, or landing page, Nemesis Digital Web Studio is ready to bring your ideas to life.
+</p>
+
+<a class="button" href="https://wa.me/254115786763">
+Start Your Project Today
+</a>
 
 </section>
 <footer>
