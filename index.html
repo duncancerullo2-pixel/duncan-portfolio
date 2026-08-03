@@ -1152,7 +1152,11 @@ function typeEffect() {
 
 
 typeEffect();
-
+window.addEventListener("load", () => {
+  animateCounter("projectsCount", 3, "+");
+  animateCounter("responsiveCount", 100, "%");
+  animateCounter("supportCount", 24, "/7");
+});
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -1247,21 +1251,10 @@ function animateCounter(id, target, suffix = "") {
   }, 30);
 }
 
-let countersStarted = false;
-
-window.addEventListener("scroll", () => {
-  if (countersStarted) return;
-
-  const achievements = document.getElementById("achievements");
-  const position = achievements.getBoundingClientRect().top;
-
-  if (position < window.innerHeight - 100) {
-    countersStarted = true;
-
-    animateCounter("projectsCount", 3, "+");
-    animateCounter("responsiveCount", 100, "%");
-    animateCounter("supportCount", 24, "/7");
-  }
+window.addEventListener("load", () => {
+  animateCounter("projectsCount", 3, "+");
+  animateCounter("responsiveCount", 100, "%");
+  animateCounter("supportCount", 24, "/7");
 });
 </script>
 </body>
