@@ -484,12 +484,24 @@ transform:rotate(0deg);
 transform:rotate(360deg);
 }
   }                         
+/* Scroll Progress Bar */
+
+#progress-bar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:0%;
+    height:4px;
+    background:linear-gradient(90deg,#25D366,#00e5ff);
+    z-index:10000;
+    transition:width .1s linear;
+}
 </style>
-
-
 </head>
 
 <body>
+
+<div id="progress-bar"></div>
 
 <div id="preloader">
     <div class="loader"></div>
@@ -1207,8 +1219,17 @@ const loader = document.getElementById("preloader");
         loader.style.display = "none";
     }, 800);
 });
-</script>
+window.addEventListener("scroll", () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
 
+  const progress = (scrollTop / scrollHeight) * 100;
+
+  document.getElementById("progress-bar").style.width = progress + "%";
+});
+</script>
 </body>
 </html>
 
