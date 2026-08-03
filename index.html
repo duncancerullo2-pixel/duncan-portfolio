@@ -1249,20 +1249,20 @@ function animateCounter(id, target, suffix = "") {
 
 let countersStarted = false;
 
-const achievements = document.getElementById("achievements");
+window.addEventListener("scroll", () => {
+  if (countersStarted) return;
 
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !countersStarted) {
-      countersStarted = true;
+  const achievements = document.getElementById("achievements");
+  const position = achievements.getBoundingClientRect().top;
 
-      animateCounter("projectsCount", 3, "+");
-      animateCounter("responsiveCount", 100, "%");
-      animateCounter("supportCount", 24, "/7");
-    }
-  });
+  if (position < window.innerHeight - 100) {
+    countersStarted = true;
+
+    animateCounter("projectsCount", 3, "+");
+    animateCounter("responsiveCount", 100, "%");
+    animateCounter("supportCount", 24, "/7");
+  }
 });
-counterobserver.observe(achievements);
 </script>
 </body>
 </html>
