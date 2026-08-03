@@ -605,19 +605,19 @@ Nemesis Digital Web Studio creates professional, responsive, and modern websites
   <div style="display:flex;justify-content:center;gap:30px;flex-wrap:wrap;">
 
     <div>
-      <h1 style="color:#FFD700;">3+</h1>
-      <p>Projects Completed</p>
-    </div>
+  <h1 id="projectsCount" style="color:#FFD700;">0</h1>
+  <p>Projects Completed</p>
+</div>
 
-    <div>
-      <h1 style="color:#FFD700;">100%</h1>
-      <p>Mobile Friendly</p>
-    </div>
+<div>
+  <h1 id="responsiveCount" style="color:#FFD700;">0</h1>
+  <p>Mobile Friendly</p>
+</div>
 
-    <div>
-      <h1 style="color:#FFD700;">24/7</h1>
-      <p>Support</p>
-    </div>
+<div>
+  <h1 id="supportCount" style="color:#FFD700;">0</h1>
+  <p>Support</p>
+</div>
 </section>
   </div>
 </div>
@@ -1229,10 +1229,44 @@ window.addEventListener("scroll", () => {
 
   document.getElementById("progress-bar").style.width = progress + "%";
 });
+function animateCounter(id, target, suffix = "") {
+  const element = document.getElementById(id);
+  let count = 0;
+
+  const step = Math.max(1, Math.ceil(target / 50));
+
+  const timer = setInterval(() => {
+    count += step;
+
+    if (count >= target) {
+      count = target;
+      clearInterval(timer);
+    }
+
+    element.textContent = count + suffix;
+  }, 30);
+}
+
+let countersStarted = false;
+
+const achievements = document.getElementById("achievements");
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !countersStarted) {
+      countersStarted = true;
+
+      animateCounter("projectsCount", 3, "+");
+      animateCounter("responsiveCount", 100, "%");
+      animateCounter("supportCount", 24, "/7");
+    }
+  });
+});
+
+counterObserver.observe(achievements);
 </script>
 </body>
 </html>
-
 
 
 
