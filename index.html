@@ -496,9 +496,39 @@ transform:rotate(360deg);
     z-index:10000;
     transition:width .1s linear;
 }
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
+    margin-bottom:15px;
+}
+
+@media (max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    nav{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    nav a{
+        display:none;
+        margin:10px 0;
+    }
+
+    nav.active a{
+        display:block;
+    }
+}
 </style>
 </head>
-
 <body>
 
 <div id="progress-bar"></div>
@@ -515,6 +545,8 @@ transform:rotate(360deg);
 
 
 <nav>
+
+<button class="menu-toggle" onclick="toggleMenu()">☰</button>
 <a href="#about">About</a>
 <a href="#services">Services</a>
 <a href="#projects">Projects</a>
@@ -1235,6 +1267,9 @@ window.addEventListener("load", () => {
   animateCounter("responsiveCount", 100, "%");
   animateCounter("supportCount", 24, "/7");
 });
+function toggleMenu() {
+  document.querySelector("nav").classList.toggle("active");
+  }
 </script>
 </body>
 </html>
