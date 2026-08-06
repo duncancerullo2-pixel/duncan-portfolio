@@ -571,6 +571,20 @@ transform:rotate(360deg);
     box-shadow:0 0 25px rgba(37,211,102,.7);
     border-color:#25D366;
 }
+  .hero-content{
+    animation:heroFade 1.5s ease;
+}
+
+@keyframes heroFade{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 </style>
 </head>
 <body>
@@ -601,6 +615,7 @@ transform:rotate(360deg);
 </nav>
 
 <header>
+<div class="hero-content">
 
 <img src="favicon.png" alt="Nemesis Digital Web Studio Logo">
 <h1>Nemesis Digital Web Studio</h1>
@@ -638,6 +653,7 @@ Get a Free Quote
 <a class="button" href="https://duncancerullo2-pixel.github.io/duncan-portfolio/Duncan_Cerullo_CV.pdf">
 💼 View My Portfolio
 </a>
+</div>
 </header>
 <section class="hidden" style="background:#181818;padding:40px 20px;text-align:center;">
 
