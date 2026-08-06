@@ -535,6 +535,25 @@ transform:rotate(360deg);
     height:100%;
     z-index:-1;
   }
+  #cursor-glow{
+    position:fixed;
+    width:20px;
+    height:20px;
+    background:#25D366;
+    border-radius:50%;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 20px #25D366,0 0 40px #25D366;
+    z-index:99999;
+    opacity:0;
+    transition:transform .08s linear,opacity .2s ease,width .2s ease,height .2s ease;
+}
+
+@media (hover:none){
+    #cursor-glow{
+        display:none;
+    }
+  }
 </style>
 </head>
 <body>
@@ -1320,6 +1339,25 @@ animateParticles();
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+});
+  const cursorGlow = document.getElementById("cursor-glow");
+
+document.addEventListener("mousemove", (e) => {
+    cursorGlow.style.opacity = "1";
+    cursorGlow.style.left = e.clientX + "px";
+    cursorGlow.style.top = e.clientY + "px";
+});
+
+document.querySelectorAll("a, button").forEach(item => {
+    item.addEventListener("mouseenter", () => {
+        cursorGlow.style.width = "35px";
+        cursorGlow.style.height = "35px";
+    });
+
+    item.addEventListener("mouseleave", () => {
+        cursorGlow.style.width = "20px";
+        cursorGlow.style.height = "20px";
+    });
 });
 </script>
 </body>
